@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Gaon Khazana Hunt | Official Premium Page</title>
+    <style>
+        /* Modern Neon & Glassmorphism Theme */
+        :root {
+            --primary: #ffcc00;
+            --secondary: #00ffcc;
+            --bg-gradient: linear-gradient(135deg, #09090e 0%, #14141f 100%);
+            --card-glass: rgba(26, 26, 36, 0.45);
+            --card-border: rgba(255, 255, 255, 0.07);
+            --text-main: #ffffff;
+            --text-sub: #b0b0c5;
+            --neon-red: #ff3366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        /* Ambient Glowing Background Elements */
+        .glow-bg {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 204, 0, 0.15) 0%, rgba(0,0,0,0) 70%);
+            top: 10%;
+            left: -100px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-bg-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 255, 204, 0.1) 0%, rgba(0,0,0,0) 70%);
+            top: 50%;
+            right: -150px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 1;
+            background: radial-gradient(circle at center, rgba(20, 20, 31, 0.2) 0%, rgba(9, 9, 14, 0.9) 100%),
+                        url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1200') no-repeat center center/cover;
+        }
+
+        .production-tag {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 700;
+            animation: fadeInDown 1s ease;
+        }
+
+        .movie-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            background: linear-gradient(180deg, #ffffff 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.5));
+            animation: zoomIn 1.2s ease;
+        }
+
+        .status-wrapper {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        .status-badge {
+            background: linear-gradient(90deg, var(--neon-red), #ff0044);
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 800;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 25px rgba(255, 51, 102, 0.5);
+            animation: glowPulse 2s infinite;
+        }
+
+        .thanks-badge {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .thanks-badge span {
+            color: var(--primary);
+            margin-left: 4px;
+        }
+
+        /* Content Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #fff, var(--text-sub));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-line {
+            width: 50px;
+            height: 4px;
+            background: var(--primary);
+            margin-top: 10px;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        /* Modern Glassmorphic Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .glass-card {
+            background: var(--card-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 35px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 204, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(255, 204, 0, 0.05);
+        }
+
+        .glass-card h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .glass-card p {
+            color: var(--text-sub);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .list-item:last-child { border: none; }
+        .list-item .role { color: var(--text-sub); font-weight: 500; }
+        .list-item .name { color: #fff; font-weight: 700; }
+        .list-item .name.highlight { color: var(--secondary); }
+        .list-item .small-note { font-size: 0.85rem; color: var(--text-sub); display: block; text-align: right; }
+
+        /* Premium Star Cast Grid */
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .cast-avatar-card {
+            background: var(--card-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cast-avatar-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .cast-avatar-card:hover::before { opacity: 1; }
+
+        .cast-avatar-card:hover {
+            background: rgba(26, 26, 36, 0.7);
+            transform: scale(1.03);
+        }
+
+        .avatar-placeholder {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #2a2a3a, #3a3a52);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .cast-avatar-card .name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .appreciation-note {
+            text-align: center;
+            max-width: 700px;
+            margin: 40px auto 0;
+            font-size: 1.15rem;
+            color: var(--text-sub);
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.03);
+        }
+
+        /* Footer Showcase */
+        .footer-showcase {
+            background: #06060a;
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            position: relative;
+            z-index: 1;
+        }
+
+        .release-year {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            background: linear-gradient(180deg, #ffffff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .part2-banner {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 4px;
+            background: rgba(0, 255, 204, 0.05);
+            border: 1px solid rgba(0, 255, 204, 0.1);
+        }
+
+        .copyright {
+            color: #555565;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Keyframe Animations */
+        @keyframes glowPulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 51, 102, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 0 35px rgba(255, 51, 102, 0.7); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 51, 102, 0.4); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Responsive Layout fixes */
+        @media (max-width: 768px) {
+            .movie-title { font-size: 2.8rem; }
+            .release-year { font-size: 2.8rem; }
+            .hero { height: 80vh; }
+            .part2-banner { font-size: 1.1rem; letter-spacing: 1px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Glowing Backgrounds -->
+    <div class="glow-bg"></div>
+    <div class="glow-bg-2"></div>
+
+    <!-- Hero Header -->
+    <div class="hero">
+        <div class="production-tag">Apna Productions</div>
+        <h1 class="movie-title">The Great Gaon<br>Khazana Hunt</h1>
+        <div class="status-wrapper">
+            <div class="status-badge">Shooting Starts Soon</div>
+            <div class="thanks-badge">Special Thanks To <span>Arush</span></div>
+        </div>
+    </div>
+
+    <!-- Container Content -->
+    <div class="container">
+        
+        <!-- Info Block -->
+        <div class="section-header">
+            <h2 class="section-title">The Masterminds</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="info-grid">
+            <!-- Main Direction Card -->
+            <div class="glass-card">
+                <h3>Production Crew</h3>
+                <div class="list-item">
+                    <span class="role">Director</span>
+                    <span class="name">Arush</span>
+                </div>
+                <div class="list-item">
+                    <span class="role">Asst. Director</span>
+                    <span class="name">Jigyasha</span>
+                </div>
+                <div class="list-item">
+                    <span class="role">Production House</span>
+                    <span class="name" style="color: var(--primary);">Apna Productions</span>
+                </div>
+            </div>
+
+            <!-- Post Production Card -->
+            <div class="glass-card">
+                <h3>Creative & Technical</h3>
+                <div class="list-item">
+                    <span class="role">Script Writer</span>
+                    <div>
+                        <span class="name">Arush</span>
+                        <span class="small-note">(Little bit Jigyasha)</span>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <span class="role">Lead Editor</span>
+                    <span class="name highlight">Arush</span>
+                </div>
+                <div class="list-item">
+                    <span class="role">Makeup Artist</span>
+                    <span class="name">Jigyasha</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cast Block -->
+        <div class="section-header">
+            <h2 class="section-title">Star Cast</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="cast-grid">
+            <div class="cast-avatar-card">
+                <div class="avatar-placeholder">J</div>
+                <div class="name">Jigyasha</div>
+            </div>
+            <div class="cast-avatar-card">
+                <div class="avatar-placeholder">K</div>
+                <div class="name">Kashish</div>
+            </div>
+            <div class="cast-avatar-card">
+                <div class="avatar-placeholder">R</div>
+                <div class="name">Rajveer</div>
+            </div>
+            <div class="cast-avatar-card">
+                <div class="avatar-placeholder">P</div>
+                <div class="name">Pihu</div>
+            </div>
+        </div>
+
+        <!-- Special Cast Appreciation -->
+        <p class="appreciation-note">
+            ❤️ A huge thank you to the entire stellar cast for bringing their incredible energy to this brand-new short film project! 
+        </p>
+
+    </div>
+
+    <!-- Premium Footer Showcase -->
+    <div class="footer-showcase">
+        <div class="release-year">💥 2026 💥</div>
+        <div class="part2-banner">🚀 Part 2 Coming Soon As Possible 🚀</div>
+        <p class="copyright">&copy; 2026 Apna Productions. Engineered for high performance.</p>
+    </div>
+
+</body>
+</html>
